@@ -36,6 +36,10 @@ if USE_OMX_TARGET_RPI
 testegl_LDADD += -lbcm_host
 endif
 
+if USE_OMX_TARGET_HISILICON
+testegl_LDADD += -lGLX
+endif
+
 testegl_CFLAGS = \
 	$(GST_PLUGINS_BASE_CFLAGS) \
 	$(GST_BASE_CFLAGS) \

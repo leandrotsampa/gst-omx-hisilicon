@@ -104,6 +104,11 @@ libgstomx_la_LIBADD = \
 	$(GST_LIBS) \
 	$(GST_ALLOCATORS_LIBS) \
 	$(GMODULE_NO_EXPORT_LIBS)
+
+if USE_OMX_TARGET_HISILICON
+libgstomx_la_LIBADD += -lGLX
+endif
+
 libgstomx_la_LDFLAGS = $(GST_PLUGIN_LDFLAGS)
 
 EXTRA_DIST = \

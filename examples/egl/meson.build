@@ -16,11 +16,16 @@ if x11_dep.found() or omx_target == 'rpi'
     gles2_dep = cc.find_library ('GLESv2')
   endif
 
+  glx_dep = dependency('GLX', required : false)
+  if not glx_dep.found()
+    glx_dep = cc.find_library ('GLX')
+  endif
+
   executable ('testegl',
       sources : egl_sources,
       c_args : gst_omx_args,
       include_directories : [configinc],
       dependencies : [libm, gst_dep, gstvideo_dep, gstgl_dep, egl_dep,
-                      gles2_dep] + optional_deps
+                      gles2_dep, glx_dep] + optional_deps
   )
 endif

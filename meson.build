@@ -213,6 +213,8 @@ elif omx_target == 'tizonia'
   cdata.set('TIZONIA_LIBDIR', tizil_dep.get_pkgconfig_variable('libdir'))
   tizil_includedir = tizil_dep.get_pkgconfig_variable('includedir')
   gst_omx_args += ['-I' + tizil_includedir + '/tizonia']
+elif omx_target == 'hisilicon'
+  cdata.set('USE_OMX_TARGET_HISILICON', 1)
 else
   error ('Unsupported omx target specified. Use the -Dwith_omx_target option')
 endif

@@ -380,7 +380,7 @@ update_param_hevc (GstOMXH265Enc * self,
 
   if (self->b_frames != GST_OMX_H265_VIDEO_ENC_B_FRAMES_DEFAULT)
     param.nBFrames = self->b_frames;
-#else
+#elifndef (USE_OMX_TARGET_HISILICON)
   if (self->interval_intraframes !=
       GST_OMX_H265_VIDEO_ENC_INTERVAL_OF_CODING_INTRA_FRAMES_DEFAULT)
     param.nKeyFrameInterval = self->interval_intraframes;
