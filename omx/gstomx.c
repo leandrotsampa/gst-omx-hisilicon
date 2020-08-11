@@ -1886,7 +1886,7 @@ gst_omx_is_dynamic_allocation_supported (void)
   return TRUE;
 #endif
 
-#if OMX_VERSION_MINOR == 2
+#if OMX_VERSION_MINOR == 2 && !defined(USE_OMX_TARGET_HISILICON)
   return TRUE;
 #else
   return FALSE;
